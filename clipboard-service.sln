@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mesi.Io.Clipboard.Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mesi.Io.Clipboard.Application", "src\Mesi.Io.Clipboard.Application\Mesi.Io.Clipboard.Application.csproj", "{CE2587B5-1ACB-4B55-AA47-9CB6D9BD2B42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mesi.Io.Clipboard.Domain.Contract", "src\Mesi.Io.Clipboard.Domain.Contract\Mesi.Io.Clipboard.Domain.Contract.csproj", "{E6E071C8-97E4-4CC9-B9B7-3965E8C3592F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,7 @@ Global
 		{1C3EA38F-4146-4FED-BBE7-0F26E23E3B11} = {DA1B1EBA-0496-4412-A764-1B43E4F2BA82}
 		{A890C779-86D8-429C-856F-AA682FFA0DFD} = {F4D7346E-77BD-431F-BED7-EF9A9355D173}
 		{CE2587B5-1ACB-4B55-AA47-9CB6D9BD2B42} = {F4D7346E-77BD-431F-BED7-EF9A9355D173}
+		{E6E071C8-97E4-4CC9-B9B7-3965E8C3592F} = {F4D7346E-77BD-431F-BED7-EF9A9355D173}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{01B91DC1-B510-49BD-BDD3-8C9F18DDE1F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -97,5 +100,17 @@ Global
 		{CE2587B5-1ACB-4B55-AA47-9CB6D9BD2B42}.Release|x64.Build.0 = Release|Any CPU
 		{CE2587B5-1ACB-4B55-AA47-9CB6D9BD2B42}.Release|x86.ActiveCfg = Release|Any CPU
 		{CE2587B5-1ACB-4B55-AA47-9CB6D9BD2B42}.Release|x86.Build.0 = Release|Any CPU
+		{E6E071C8-97E4-4CC9-B9B7-3965E8C3592F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6E071C8-97E4-4CC9-B9B7-3965E8C3592F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6E071C8-97E4-4CC9-B9B7-3965E8C3592F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E6E071C8-97E4-4CC9-B9B7-3965E8C3592F}.Debug|x64.Build.0 = Debug|Any CPU
+		{E6E071C8-97E4-4CC9-B9B7-3965E8C3592F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E6E071C8-97E4-4CC9-B9B7-3965E8C3592F}.Debug|x86.Build.0 = Debug|Any CPU
+		{E6E071C8-97E4-4CC9-B9B7-3965E8C3592F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6E071C8-97E4-4CC9-B9B7-3965E8C3592F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6E071C8-97E4-4CC9-B9B7-3965E8C3592F}.Release|x64.ActiveCfg = Release|Any CPU
+		{E6E071C8-97E4-4CC9-B9B7-3965E8C3592F}.Release|x64.Build.0 = Release|Any CPU
+		{E6E071C8-97E4-4CC9-B9B7-3965E8C3592F}.Release|x86.ActiveCfg = Release|Any CPU
+		{E6E071C8-97E4-4CC9-B9B7-3965E8C3592F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

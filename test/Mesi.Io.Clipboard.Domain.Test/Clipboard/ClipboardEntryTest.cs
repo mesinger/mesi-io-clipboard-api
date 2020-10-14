@@ -45,7 +45,7 @@ namespace Mesi.Io.Clipboard.Domain.Test.Clipboard
             var content = sut.Content;
 
             // then
-            content.Content.Should().Be(Content);
+            content.Text.Should().Be(Content);
         }
     }
 }

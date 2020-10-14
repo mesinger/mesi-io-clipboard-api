@@ -1,19 +1,17 @@
 ﻿using System;
-using CSharpFunctionalExtensions;
+using Mesi.Io.Clipboard.Domain.Contract.Clipboard;
 
 namespace Mesi.Io.Clipboard.Domain.Clipboard.Models
 {
-    /// <summary>
-    /// A clipboard entry containing its user, content and timestamp
-    /// </summary>
-    public class ClipboardEntry
+    /// <inheritdoc />
+    public class ClipboardEntry : IClipboardEntry
     {
-        protected ClipboardEntry(string id, string userId, ClipboardContent content, DateTime createdAt, int contentMaxLength)
+        protected ClipboardEntry(string id, IClipboardServiceUser creator, IClipboardContent content, DateTime timeStamp, int contentMaxLength)
         {
             Id = id;
-            UserId = UserId;
+            Creator = creator;
             Content = content;
-            CreatedAt = createdAt;
+            TimeStamp = timeStamp;
             ContentMaxLength = contentMaxLength;
         }
 
@@ -36,20 +34,27 @@ namespace Mesi.Io.Clipboard.Domain.Clipboard.Models
                 throw new ArgumentException($"Clipboard content exceeds limit of '{contentMaxLength}' characters.");
             }
             
-            return new ClipboardEntry(Guid.NewGuid().ToString(), userId, ClipboardContent.Create(content), timeStamp, contentMaxLength);
+            return new ClipboardEntry(Guid.NewGuid().ToString(), ClipboardServiceUser.Create(userId), ClipboardContent.Create(content), timeStamp, contentMaxLength);
         }
 
+        /// <inheritdoc />
         public string Id { get; }
-        // public ClipboardServiceUser User { get; }
-        public string UserId { get; }
-        public ClipboardContent Content { get; }
-        public DateTime CreatedAt { get; }
+
+        /// <inheritdoc />
+        public IClipboardServiceUser Creator { get; }
+
+        /// <inheritdoc />
+        public IClipboardContent Content { get; }
+
+        /// <inheritdoc />
+        public DateTime TimeStamp { get; }
+        
         public int ContentMaxLength { get; }
 
         /// <inheritdoc />
         public override string ToString()
         {
-            return $"Clipboard Entry '{Id}': User '{UserId}' on '{CreatedAt}': '{Content.Content}'";
+            return $"Clipboard Entry '{Id}': User '{Creator.UserId}' on '{TimeStamp}': '{Content.Text}'";
         }
     }
 }

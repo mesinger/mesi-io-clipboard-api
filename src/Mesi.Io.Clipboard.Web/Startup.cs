@@ -1,5 +1,5 @@
 using Mesi.Io.Clipboard.Application.UseCases;
-using Mesi.Io.Clipboard.Domain.Clipboard.Data;
+using Mesi.Io.Clipboard.Domain.Contract.Clipboard.Repositories;
 using Mesi.Io.Clipboard.Infrastructure.Db;
 using Mesi.Io.Clipboard.Infrastructure.Db.Clipboard;
 using Microsoft.AspNetCore.Builder;

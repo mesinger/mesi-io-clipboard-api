@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Mesi.Io.Clipboard.Domain.Clipboard.Models;
 
-namespace Mesi.Io.Clipboard.Domain.Clipboard.Data
+namespace Mesi.Io.Clipboard.Domain.Contract.Clipboard.Repositories
 {
     /// <summary>
     /// Access to clipboard entries
@@ -13,13 +12,13 @@ namespace Mesi.Io.Clipboard.Domain.Clipboard.Data
         /// Adds a new clipboard entry
         /// </summary>
         /// <param name="entry"></param>
-        Task AddEntry(ClipboardEntry entry);
+        Task Add(IClipboardEntry entry);
 
         /// <summary>
         /// Retrieves all clipboard entries by a given user id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<IEnumerable<ClipboardEntry>> GetAllByUser(string id);
+        Task<IEnumerable<IClipboardEntry>> FindAllByUser(string id);
     }
 }

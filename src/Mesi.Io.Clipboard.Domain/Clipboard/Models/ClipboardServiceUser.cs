@@ -1,9 +1,11 @@
-﻿namespace Mesi.Io.Clipboard.Domain.Clipboard.Models
+﻿using Mesi.Io.Clipboard.Domain.Contract.Clipboard;
+
+namespace Mesi.Io.Clipboard.Domain.Clipboard.Models
 {
     /// <summary>
     /// A user that consumes clipboard services
     /// </summary>
-    public class ClipboardServiceUser
+    public class ClipboardServiceUser : IClipboardServiceUser
     {
         protected ClipboardServiceUser(string userId)
         {

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Mesi.Io.Clipboard.Domain.Clipboard.Data;
 using Mesi.Io.Clipboard.Domain.Clipboard.Models;
+using Mesi.Io.Clipboard.Domain.Contract.Clipboard.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace Mesi.Io.Clipboard.Infrastructure.Db.Clipboard

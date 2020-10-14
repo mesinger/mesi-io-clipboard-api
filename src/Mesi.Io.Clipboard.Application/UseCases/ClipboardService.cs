@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using CSharpFunctionalExtensions;
-using Mesi.Io.Clipboard.Domain.Clipboard.Data;
 using Mesi.Io.Clipboard.Domain.Clipboard.Models;
+using Mesi.Io.Clipboard.Domain.Contract.Clipboard.Repositories;
 using Microsoft.Extensions.Logging;
 
 namespace Mesi.Io.Clipboard.Application.UseCases
