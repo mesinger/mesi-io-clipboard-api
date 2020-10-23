@@ -1,0 +1,26 @@
+---
+- hosts: pi
+  remote_user: pi
+  tasks:
+    - name: stop app
+      shell: docker-compose -f /home/pi/mesi-io/clipboard-service/docker-compose.yml down || /bin/true
+
+    - name: clean
+      shell: find /home/pi/mesi-io/clipboard-service -type f ! -name 'log*' -delete || /bin/true
+
+    - name: create directory
+      file:
+        path: /home/pi/mesi-io/clipboard-service
+        state: directory
+        mode: '0755'
+
+    - name: copy and extract app
+      unarchive:
+        src: clipboard-service.zip
+        dest: /home/pi/mesi-io/clipboard-service
+
+    - name: build docker image
+      shell: docker build -t mesi/clipboard-service /home/pi/mesi-io/clipboard-service
+    
+    - name: run app
+      shell: docker-compose -f /home/pi/mesi-io/clipboard-service/docker-compose.yml up -d
