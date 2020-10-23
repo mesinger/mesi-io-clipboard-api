@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mesi.Io.Clipboard.Applicati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mesi.Io.Clipboard.Domain.Contract", "src\Mesi.Io.Clipboard.Domain.Contract\Mesi.Io.Clipboard.Domain.Contract.csproj", "{E6E071C8-97E4-4CC9-B9B7-3965E8C3592F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "build\_build.csproj", "{968D31F3-BB8A-434E-B12F-4F14D3CB7FC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,8 @@ Global
 		{E6E071C8-97E4-4CC9-B9B7-3965E8C3592F} = {F4D7346E-77BD-431F-BED7-EF9A9355D173}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{968D31F3-BB8A-434E-B12F-4F14D3CB7FC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{968D31F3-BB8A-434E-B12F-4F14D3CB7FC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01B91DC1-B510-49BD-BDD3-8C9F18DDE1F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{01B91DC1-B510-49BD-BDD3-8C9F18DDE1F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01B91DC1-B510-49BD-BDD3-8C9F18DDE1F5}.Debug|x64.ActiveCfg = Debug|Any CPU
