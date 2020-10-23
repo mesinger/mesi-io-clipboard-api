@@ -11,7 +11,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Mesi.Io.Clipboard.Domain.Contract\Mesi.Io.Clipboard.Domain.Contract.csproj" />
-      <ProjectReference Include="..\Mesi.Io.Clipboard.Domain\Mesi.Io.Clipboard.Domain.Contractcsproj" />
     </ItemGroup>
 
 </Project>
