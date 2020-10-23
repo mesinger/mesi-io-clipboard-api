@@ -36,7 +36,7 @@ namespace Mesi.Io.Clipboard.Web.Controllers
                 return BadRequest("Unable to create clipboard entry");
             }
 
-            return Created("", new ClipboardEntryResponse(result.CreatedEntry.Value.Content.Content, result.CreatedEntry.Value.CreatedAt));
+            return Created("", new ClipboardEntryResponse(result.CreatedEntry.Value.Content.Text, result.CreatedEntry.Value.TimeStamp));
         }
 
         [HttpGet("getAll")]
@@ -53,7 +53,7 @@ namespace Mesi.Io.Clipboard.Web.Controllers
 
             var result = await _findAllClipboardEntriesByUser.FindAll(new FindAllClipboardEntriesByUserRequest(userId));
 
-            return Ok(from entry in result.Entries select new ClipboardEntryResponse(entry.Content.Content, entry.CreatedAt));
+            return Ok(from entry in result.Entries select new ClipboardEntryResponse(entry.Content.Text, entry.TimeStamp));
         }
     }
 }

@@ -1,11 +1,11 @@
-﻿using Mesi.Io.Clipboard.Domain.Clipboard.Models;
+﻿using Mesi.Io.Clipboard.Infrastructure.Db.Clipboard;
 using Microsoft.EntityFrameworkCore;
 
 namespace Mesi.Io.Clipboard.Infrastructure.Db
 {
     public class ApplicationDbContext : DbContext
     {
-        public DbSet<ClipboardEntry> ClipboardEntries { get; set; }
+        internal DbSet<ClipboardEntryDataModel> ClipboardEntries { get; set; }
         
         /// <inheritdoc />
         public ApplicationDbContext(DbContextOptions options) : base(options)
@@ -15,34 +15,28 @@ namespace Mesi.Io.Clipboard.Infrastructure.Db
         /// <inheritdoc />
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ClipboardEntry>(b =>
+            modelBuilder.Entity<ClipboardEntryDataModel>(b =>
             {
                 b.HasKey(c => c.Id);
-                b.ToTable("clipboardEntries");
-
-                // b.Property(c => c.User)
-                //     .IsRequired()
-                //     .HasMaxLength(40)
-                //     .HasConversion(
-                //         u => u.UserId,
-                //         v => ClipboardServiceUser.Create(v));
+                b.ToTable("clipboard_entries");
 
                 b.Property(c => c.UserId)
                     .IsRequired()
                     .HasMaxLength(40)
-                    .HasColumnName("User");
-            
+                    .HasColumnName("user");
+
                 b.Property(c => c.Content)
                     .IsRequired()
                     .HasMaxLength(500)
-                    .HasConversion(
-                        c => c.Content,
-                        v => ClipboardContent.Create(v));
+                    .HasColumnName("content");
 
                 b.Property(c => c.ContentMaxLength)
-                    .IsRequired();
+                    .IsRequired()
+                    .HasColumnName("content_max_length");
 
-                b.Property(c => c.CreatedAt).IsRequired();
+                b.Property(c => c.TimeStamp)
+                    .IsRequired()
+                    .HasColumnName("time_stamp");
             });
         }
     }

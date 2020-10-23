@@ -15,26 +15,23 @@ namespace Mesi.Io.Clipboard.Domain.Clipboard.Models
             ContentMaxLength = contentMaxLength;
         }
 
-        public static ClipboardEntry Create(string userId, string content, DateTime timeStamp)
+        public static ClipboardEntry New(string userId, string content, DateTime timeStamp)
         {
-            if (string.IsNullOrWhiteSpace(userId))
-            {
-                throw new ArgumentException($"UserId cannot be empty.");
-            }
-
-            if (string.IsNullOrWhiteSpace(content))
-            {
-                throw new ArgumentException($"Clipboard content cannot be empty.");
-            }
-            
             const int contentMaxLength = 500;
+            ThrowOnInvalidArguments(userId, content, contentMaxLength);
+            return new ClipboardEntry(Guid.NewGuid().ToString(), ClipboardServiceUser.Create(userId), ClipboardContent.Create(content), timeStamp, contentMaxLength);
+        }
 
-            if (content.Length > contentMaxLength)
+        public static ClipboardEntry Create(string id, string userId, string content, DateTime timeStamp, int contentMaxLength)
+        {
+            ThrowOnInvalidArguments(userId, content, contentMaxLength);
+
+            if (!Guid.TryParse(id, out var guid))
             {
-                throw new ArgumentException($"Clipboard content exceeds limit of '{contentMaxLength}' characters.");
+                throw new ArgumentException("Id '{id}' for clipboard entry is not a valid guid", id);
             }
             
-            return new ClipboardEntry(Guid.NewGuid().ToString(), ClipboardServiceUser.Create(userId), ClipboardContent.Create(content), timeStamp, contentMaxLength);
+            return new ClipboardEntry(id, ClipboardServiceUser.Create(userId), ClipboardContent.Create(content), timeStamp, contentMaxLength);
         }
 
         /// <inheritdoc />
@@ -49,7 +46,26 @@ namespace Mesi.Io.Clipboard.Domain.Clipboard.Models
         /// <inheritdoc />
         public DateTime TimeStamp { get; }
         
+        /// <inheritdoc />
         public int ContentMaxLength { get; }
+
+        private static void ThrowOnInvalidArguments(string userId, string content, int contentMaxLength)
+        {
+            if (string.IsNullOrWhiteSpace(userId))
+            {
+                throw new ArgumentException($"UserId cannot be empty.");
+            }
+
+            if (string.IsNullOrWhiteSpace(content))
+            {
+                throw new ArgumentException($"Clipboard content cannot be empty.");
+            }
+
+            if (content.Length > contentMaxLength)
+            {
+                throw new ArgumentException($"Clipboard content exceeds limit of '{contentMaxLength}' characters.");
+            }
+        }
 
         /// <inheritdoc />
         public override string ToString()

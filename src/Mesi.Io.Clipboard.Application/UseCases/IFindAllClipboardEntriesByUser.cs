@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Mesi.Io.Clipboard.Domain.Clipboard.Models;
+using Mesi.Io.Clipboard.Domain.Contract.Clipboard;
 
 namespace Mesi.Io.Clipboard.Application.UseCases
 {
     /// <summary>
-    /// Finds all <see cref="ClipboardEntry"/> for a given user
+    /// Finds all <see cref="IClipboardEntry"/> for a given user
     /// </summary>
     public interface IFindAllClipboardEntriesByUser
     {
         /// <summary>
-        /// Finds all <see cref="ClipboardEntry"/> for a given user
+        /// Finds all <see cref="IClipboardEntry"/> for a given user
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
@@ -29,11 +29,11 @@ namespace Mesi.Io.Clipboard.Application.UseCases
 
     public class FindAllClipboardEntriesByUserResponse
     {
-        public FindAllClipboardEntriesByUserResponse(IEnumerable<ClipboardEntry> entries)
+        public FindAllClipboardEntriesByUserResponse(IEnumerable<IClipboardEntry> entries)
         {
             Entries = entries;
         }
 
-        public IEnumerable<ClipboardEntry> Entries { get; }
+        public IEnumerable<IClipboardEntry> Entries { get; }
     }
 }

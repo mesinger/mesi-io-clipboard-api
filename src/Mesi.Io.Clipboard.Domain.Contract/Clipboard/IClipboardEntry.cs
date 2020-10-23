@@ -26,5 +26,10 @@ namespace Mesi.Io.Clipboard.Domain.Contract.Clipboard
         /// Timestamp of creation
         /// </summary>
         public DateTime TimeStamp { get; }
+
+        /// <summary>
+        /// The maximum length <see cref="Content"/>
+        /// </summary>
+        public int ContentMaxLength { get; }
     }
 }

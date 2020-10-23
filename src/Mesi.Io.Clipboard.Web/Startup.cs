@@ -2,6 +2,7 @@ using Mesi.Io.Clipboard.Application.UseCases;
 using Mesi.Io.Clipboard.Domain.Contract.Clipboard.Repositories;
 using Mesi.Io.Clipboard.Infrastructure.Db;
 using Mesi.Io.Clipboard.Infrastructure.Db.Clipboard;
+using Mesi.Io.Clipboard.Infrastructure.Db.Clipboard.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;

@@ -1,7 +1,6 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using CSharpFunctionalExtensions;
-using Mesi.Io.Clipboard.Domain.Clipboard.Models;
+using Mesi.Io.Clipboard.Domain.Contract.Clipboard;
 
 namespace Mesi.Io.Clipboard.Application.UseCases
 {
@@ -32,11 +31,11 @@ namespace Mesi.Io.Clipboard.Application.UseCases
 
     public class CreateNewClipboardEntryResponse
     {
-        public CreateNewClipboardEntryResponse(Maybe<ClipboardEntry> createdEntry)
+        public CreateNewClipboardEntryResponse(Maybe<IClipboardEntry> createdEntry)
         {
             CreatedEntry = createdEntry;
         }
 
-        public Maybe<ClipboardEntry> CreatedEntry { get; }
+        public Maybe<IClipboardEntry> CreatedEntry { get; }
     }
 }
