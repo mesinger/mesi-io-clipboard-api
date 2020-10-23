@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 
 namespace Mesi.Io.Clipboard.Web
@@ -12,6 +13,11 @@ namespace Mesi.Io.Clipboard.Web
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((context, builder) =>
+                {
+                    builder.AddEnvironmentVariables("MesiIoClipboardApi_");
+                    builder.AddEnvironmentVariables("MesiIo_");
+                })
                 .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
     }
 }
