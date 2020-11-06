@@ -15,8 +15,7 @@ namespace Mesi.Io.Clipboard.Web
             Host.CreateDefaultBuilder(args)
                 .ConfigureAppConfiguration((context, builder) =>
                 {
-                    builder.AddEnvironmentVariables("MesiIoClipboardApi_");
-                    builder.AddEnvironmentVariables("MesiIo_");
+                    builder.AddEnvironmentVariables("MESI_IO_CLIPBOARD_SERVICE_");
                 })
                 .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
     }

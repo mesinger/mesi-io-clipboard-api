@@ -18,7 +18,7 @@ namespace Mesi.Io.Clipboard.Infrastructure.Db
             modelBuilder.Entity<ClipboardEntryDataModel>(b =>
             {
                 b.HasKey(c => c.Id);
-                b.ToTable("clipboard_entries");
+                b.ToTable("t_clipboard_entries");
 
                 b.Property(c => c.UserId)
                     .IsRequired()

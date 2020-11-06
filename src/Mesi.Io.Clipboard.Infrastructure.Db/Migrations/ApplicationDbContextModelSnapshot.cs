@@ -19,30 +19,35 @@ namespace Mesi.Io.Clipboard.Infrastructure.Db.Migrations
                 .HasAnnotation("ProductVersion", "3.1.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            modelBuilder.Entity("Mesi.Io.Clipboard.Domain.Clipboard.Models.ClipboardEntry", b =>
+            modelBuilder.Entity("Mesi.Io.Clipboard.Infrastructure.Db.Clipboard.ClipboardEntryDataModel", b =>
                 {
                     b.Property<string>("Id")
+                        .HasColumnName("id")
                         .HasColumnType("text");
 
                     b.Property<string>("Content")
                         .IsRequired()
+                        .HasColumnName("content")
                         .HasColumnType("character varying(500)")
                         .HasMaxLength(500);
 
                     b.Property<int>("ContentMaxLength")
+                        .HasColumnName("content_max_length")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime>("TimeStamp")
+                        .HasColumnName("time_stamp")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<string>("User")
+                    b.Property<string>("UserId")
                         .IsRequired()
+                        .HasColumnName("user")
                         .HasColumnType("character varying(40)")
                         .HasMaxLength(40);
 
                     b.HasKey("Id");
 
-                    b.ToTable("clipboardEntries");
+                    b.ToTable("t_clipboard_entries");
                 });
 #pragma warning restore 612, 618
         }

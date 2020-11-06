@@ -12,6 +12,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Mesi.Io.Clipboard.Application\Mesi.Io.Clipboard.Application.csproj" />
+      <ProjectReference Include="..\Mesi.Io.Clipboard.Domain\Mesi.Io.Clipboard.Domain.csproj" />
       <ProjectReference Include="..\Mesi.Io.Clipboard.Infrastructure.Db\Mesi.Io.Clipboard.Infrastructure.Db.csproj" />
     </ItemGroup>
 

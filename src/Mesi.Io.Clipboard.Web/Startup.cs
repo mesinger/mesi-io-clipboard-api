@@ -1,4 +1,6 @@
 using Mesi.Io.Clipboard.Application.UseCases;
+using Mesi.Io.Clipboard.Domain.Clipboard.Factories;
+using Mesi.Io.Clipboard.Domain.Contract.Clipboard.Factories;
 using Mesi.Io.Clipboard.Domain.Contract.Clipboard.Repositories;
 using Mesi.Io.Clipboard.Infrastructure.Db;
 using Mesi.Io.Clipboard.Infrastructure.Db.Clipboard;
@@ -59,6 +61,7 @@ namespace Mesi.Io.Clipboard.Web
             services.AddScoped<IClipboardRepository, ClipboardRepository>();
             services.AddScoped<ICreateNewClipboardEntry, ClipboardService>();
             services.AddScoped<IFindAllClipboardEntriesByUser, ClipboardService>();
+            services.AddScoped<IClipboardEntryFactory, ClipboardEntryFactory>();
 
             services.AddControllers();
         }
