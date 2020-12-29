@@ -4,13 +4,17 @@ services:
 
   mesi-io-clipboard-service:
     image: mesi/clipboard-service
-    container_name: clipboard-service
+    container_name: mesi-io-clipboard-service
 
     ports:
-      - 30001:5000
+      - 14100:5000
       
     volumes:
       - ./logs:/app/logs
+
+    environment:
+      - MESI_IO_CLIPBOARD_SERVICE_ConnectionStrings__ClipboardDb
+      - MESI_IO_CLIPBOARD_SERVICE_OAuth__Authority
 
     healthcheck:
       test: curl -f http://localhost:5000/heartbeat || exit 1

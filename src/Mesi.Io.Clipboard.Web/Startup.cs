@@ -74,7 +74,7 @@ namespace Mesi.Io.Clipboard.Web
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
 
             app.UseRouting();
 
