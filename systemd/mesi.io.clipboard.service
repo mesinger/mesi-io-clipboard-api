@@ -1,0 +1,16 @@
+[Unit]
+Description=mesi.io Clipboard API
+
+[Service]
+WorkingDirectory=/var/www/mesi.io.clipboard
+ExecStart=/var/www/mesi.io.clipboard/clipboard-service --urls=${MESI_IO_CLIPBOARD_SERVICE_ASPNETCORE_URLS}
+Restart=always
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=mesi.io.clipboard
+User=pi
+EnvironmentFile=/home/pi/mesi-io/envs
+Environment=ASPNETCORE_ENVIRONMENT=Production
+
+[Install]
+WantedBy=multi-user.target
